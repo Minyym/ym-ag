@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+*-lock.json
+*-lock.*
+*.lock
+*.env*
+.pnpm-store
+milvus/*

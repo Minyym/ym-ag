@@ -1,0 +1,116 @@
+{
+  "": {
+    "user_session_001": {
+      "messages": [
+        {
+          "type": "human",
+          "data": {
+            "content": "红烧肉怎么做",
+            "additional_kwargs": {},
+            "response_metadata": {}
+          }
+        },
+        {
+          "type": "ai",
+          "data": {
+            "id": "chatcmpl-7328447f-6a75-92b8-953e-66623efba75e",
+            "content": "红烧肉是一道非常受欢迎的传统中式菜肴，以其色泽红亮、肥而不腻、入口即化的口感而著称。下面我将详细介绍如何制作一道美味的红烧肉。\n\n### 材料准备：\n- 五花肉500克（建议选择带皮的部分）\n- 生姜几片\n- 大葱一段\n- 料酒适量\n- 老抽（用于上色）适量\n- 生抽适量\n- 糖（最好是冰糖或白糖，用来提鲜和上色）1大勺\n- 清水适量\n- 盐少许\n\n### 制作步骤：\n\n1. **准备工作**：首先，将五花肉切成约2厘米见方的小块。切好的肉块放入冷水中，加入几片生姜和一小段大葱，大火煮开后撇去浮沫，捞出肉块沥干水分备用。\n\n2. **炒糖色**：锅中放少量油，待油热后放入糖（冰糖效果更佳），小火慢慢翻炒至糖溶化并开始变色，变成深红色时，快速倒入焯好水的肉块，继续翻炒均匀，使每一块肉都裹上糖色。\n\n3. **加调料炖煮**：在肉块表面均匀上色后，加入足够的热水（没过肉块即可），然后加入生抽、老抽调色，以及适量的料酒。根据个人口味调整盐的量。\n\n4. **慢炖入味**：大火烧开后转小火慢炖，期间可以适当翻动几次肉块，让味道更加均匀。大约需要炖煮1.5到2小时，直到肉质软烂，汤汁浓稠。\n\n5. **收汁**：最后，根据个人喜好，如果汤汁太稀，可以开大火收汁，直至汤汁浓稠，肉块表面光亮即可。\n\n6. **装盘**：将红烧肉盛出，撒上一些葱花点缀，即可享用美味的红烧肉了。\n\n### 小贴士：\n- 炒糖色的时候一定要小心火候，避免糖色炒糊。\n- 慢炖是这道菜的关键，时间要足够长，才能使肉质酥软。\n- 如果不喜欢太甜，可以在炒糖色的时候少放点糖，或者炖煮过程中少放一些糖。\n\n希望你能做出美味的红烧肉，享受烹饪的乐趣！如果有任何问题或需要进一步的帮助，请随时告诉我。",
+            "additional_kwargs": {},
+            "response_metadata": {
+              "tokenUsage": {
+                "promptTokens": 32,
+                "completionTokens": 535,
+                "totalTokens": 567
+              },
+              "finish_reason": "stop",
+              "model_provider": "openai",
+              "model_name": "qwen-coder-turbo"
+            },
+            "type": "ai",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "output_tokens": 535,
+              "input_tokens": 32,
+              "total_tokens": 567,
+              "input_token_details": {},
+              "output_token_details": {}
+            }
+          }
+        },
+        {
+          "type": "human",
+          "data": {
+            "content": "好吃吗？",
+            "additional_kwargs": {},
+            "response_metadata": {}
+          }
+        },
+        {
+          "type": "ai",
+          "data": {
+            "id": "chatcmpl-20f3f2d3-b547-92f6-9806-0f22ff0b4922",
+            "content": "红烧肉作为一道经典的中式菜肴，其味道通常是非常美味的。它色泽红亮，肉质酥软，肥而不腻，入口即化，深受大家的喜爱。如果你按照上述步骤用心制作，相信你会得到一份令人满意的红烧肉。如果你有任何疑问或需要更多的食谱推荐，请随时告诉我！",
+            "additional_kwargs": {},
+            "response_metadata": {
+              "tokenUsage": {
+                "promptTokens": 580,
+                "completionTokens": 68,
+                "totalTokens": 648
+              },
+              "finish_reason": "stop",
+              "model_provider": "openai",
+              "model_name": "qwen-coder-turbo"
+            },
+            "type": "ai",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "output_tokens": 68,
+              "input_tokens": 580,
+              "total_tokens": 648,
+              "input_token_details": {},
+              "output_token_details": {}
+            }
+          }
+        },
+        {
+          "type": "human",
+          "data": {
+            "content": "需要哪些食材？",
+            "additional_kwargs": {},
+            "response_metadata": {}
+          }
+        },
+        {
+          "type": "ai",
+          "data": {
+            "id": "chatcmpl-49b8a641-b874-93f7-8e84-1f755fc76124",
+            "content": "当然，我可以为你详细列出红烧肉所需的食材。以下是制作红烧肉的基本材料：\n\n### 主要食材：\n- 五花肉500克（建议选择带皮的部分）\n\n### 辅助食材：\n- 生姜几片\n- 大葱一段\n- 料酒适量\n- 老抽（用于上色）适量\n- 生抽适量\n- 糖（最好是冰糖或白糖，用来提鲜和上色）1大勺\n- 清水适量\n- 盐少许\n\n### 其他可选配料：\n- 香叶几片（可选，增加香气）\n- 八角几个（可选，增加香味）\n- 葱花（装饰用）\n\n这些食材应该能满足你制作红烧肉的基本需求。如果你有其他特别的食材想要添加，也可以根据自己的口味进行调整。祝你烹饪愉快！",
+            "additional_kwargs": {},
+            "response_metadata": {
+              "tokenUsage": {
+                "promptTokens": 664,
+                "completionTokens": 191,
+                "totalTokens": 855
+              },
+              "finish_reason": "stop",
+              "model_provider": "openai",
+              "model_name": "qwen-coder-turbo"
+            },
+            "type": "ai",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "output_tokens": 191,
+              "input_tokens": 664,
+              "total_tokens": 855,
+              "input_token_details": {},
+              "output_token_details": {}
+            }
+          }
+        }
+      ]
+    }
+  }
+}
