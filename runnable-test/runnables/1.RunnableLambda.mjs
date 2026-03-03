@@ -1,3 +1,4 @@
+// 这个是把普通函数封装成 Runnable 对象
 import 'dotenv/config';
 import { RunnableLambda, RunnableSequence } from "@langchain/core/runnables";
 
