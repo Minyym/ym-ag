@@ -6,7 +6,7 @@
     <title>ASR 录音测试</title>
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         max-width: 720px;
         margin: 40px auto;
         padding: 0 16px;
@@ -40,78 +40,88 @@
     <pre id="result">（暂无）</pre>
 
     <script>
-      const startBtn = document.getElementById("startBtn");
-      const stopBtn = document.getElementById("stopBtn");
-      const statusEl = document.getElementById("status");
-      const resultEl = document.getElementById("result");
+      const startBtn = document.getElementById('startBtn');
+      const stopBtn = document.getElementById('stopBtn');
+      const statusEl = document.getElementById('status');
+      const resultEl = document.getElementById('result');
 
       let mediaRecorder = null;
       let chunks = [];
-      const recordFilename = "record.ogg";
+      const recordFilename = 'record.ogg';
 
       function setStatus(text) {
-        statusEl.textContent = "状态：" + text;
+        statusEl.textContent = '状态：' + text;
       }
 
-      startBtn.addEventListener("click", async () => {
+      startBtn.addEventListener('click', async () => {
         try {
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          // 1. 请求麦克风权限
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+          });
           chunks = [];
-          const preferredMimeType = "audio/ogg;codecs=opus";
+
+          // 2. 创建录音器（优先用 ogg 格式，兼容性更好）
+          const preferredMimeType = 'audio/ogg;codecs=opus';
           mediaRecorder = MediaRecorder.isTypeSupported(preferredMimeType)
             ? new MediaRecorder(stream, { mimeType: preferredMimeType })
             : new MediaRecorder(stream);
 
+          // 3. 录音时不断收集音频片段
           mediaRecorder.ondataavailable = (event) => {
             if (event.data && event.data.size > 0) {
               chunks.push(event.data);
             }
           };
-
+          // 4. 点击停止后 → 自动上传
           mediaRecorder.onstop = async () => {
-            setStatus("录音结束，正在上传...");
+            setStatus('录音结束，正在上传...');
             try {
+              // 把片段拼成一个完整音频文件
               const blob = new Blob(chunks, {
-                type: mediaRecorder.mimeType || "audio/webm",
+                type: mediaRecorder.mimeType || 'audio/webm',
               });
               if (!blob.size) {
-                throw new Error("录音数据为空，请至少录制 1 秒再上传");
+                throw new Error('录音数据为空，请至少录制 1 秒再上传');
               }
+              // 构造上传格式
               const formData = new FormData();
-              formData.append("audio", blob, recordFilename);
+              formData.append('audio', blob, recordFilename);
 
-              const response = await fetch("/speech/asr", {
-                method: "POST",
+              // 上传到服务器接口
+              const response = await fetch('/speech/asr', {
+                method: 'POST',
                 body: formData,
               });
 
               if (!response.ok) {
                 const text = await response.text();
-                throw new Error(text || "请求失败");
+                throw new Error(text || '请求失败');
               }
 
               const data = await response.json();
-              resultEl.textContent = data.text || "（空结果）";
-              setStatus("上传完成");
+              resultEl.textContent = data.text || '（空结果）';
+              setStatus('上传完成');
             } catch (error) {
-              setStatus("上传失败");
-              resultEl.textContent = "错误：" + (error.message || String(error));
+              setStatus('上传失败');
+              resultEl.textContent =
+                '错误：' + (error.message || String(error));
             } finally {
               stream.getTracks().forEach((t) => t.stop());
             }
           };
 
           mediaRecorder.start(250);
-          setStatus("录音中...");
+          setStatus('录音中...');
           startBtn.disabled = true;
           stopBtn.disabled = false;
         } catch (error) {
-          setStatus("无法开始录音");
-          resultEl.textContent = "错误：" + (error.message || String(error));
+          setStatus('无法开始录音');
+          resultEl.textContent = '错误：' + (error.message || String(error));
         }
       });
 
-      stopBtn.addEventListener("click", () => {
+      stopBtn.addEventListener('click', () => {
         if (!mediaRecorder) return;
         mediaRecorder.stop();
         startBtn.disabled = false;

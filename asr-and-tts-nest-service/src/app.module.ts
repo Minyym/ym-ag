@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AiModule } from './ai/ai.module';
 import { ConfigModule } from '@nestjs/config';
-// import { ControllerService } from './controller/controller.service';
+import { ControllerService } from './controller/controller.service';
 import { SpeechModule } from './speech/speech.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { EventEmitterModule } from '@nestjs/event-emitter';
@@ -25,6 +25,6 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
     SpeechModule,
   ],
   controllers: [AppController],
-  providers: [AppService,],
+  providers: [AppService, ControllerService],
 })
 export class AppModule {}

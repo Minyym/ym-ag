@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { createHmac, randomUUID } from 'node:crypto';
 import { OnEvent } from '@nestjs/event-emitter';
 import { AI_TTS_STREAM_EVENT, type AiTtsStreamEvent } from '../common/stream-events';
-import WebSocket from 'ws';
+import WebSocket = require('ws');
 
 type ClientSession = {
   sessionId: string;

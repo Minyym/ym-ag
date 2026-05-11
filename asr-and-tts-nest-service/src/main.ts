@@ -7,7 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const ttsRelayService = app.get(TtsRelayService);
   const server = app.getHttpServer();
-
+  app.enableCors({
+    origin: '*'
+  });
   const ttsWss = new WebSocketServer({
     server,
     path: '/speech/tts/ws',
