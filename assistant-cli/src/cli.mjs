@@ -32,8 +32,7 @@ export async function runCli(argv = process.argv.slice(2)) {
       console.log("用法: node src/cli.mjs ask --q \"你的问题\"");
       process.exit(1);
     }
-    const answer = await answerQuestion(q);
-    console.log(answer);
+    await answerQuestion(q);
     return;
   }
 
