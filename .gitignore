@@ -6,3 +6,5 @@ node_modules/
 *.env*
 .pnpm-store
 milvus/*
+/es-test/volumes/*
+/milvus-test/volumes/*
