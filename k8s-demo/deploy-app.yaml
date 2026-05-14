@@ -1,0 +1,40 @@
+# 部署 Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-demo
+  template:
+    metadata:
+      labels:
+        app: node-demo
+    spec:
+      containers:
+      - name: node-demo
+        image: node-demo:v1       # 本地镜像
+        imagePullPolicy: Never   # 不从远程拉取（OrbStack 专用）
+        ports:
+        - containerPort: 3000
+        livenessProbe:           # 健康检查
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+# 暴露服务 Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-demo-svc
+spec:
+  type: LoadBalancer  # OrbStack 自动映射到本机
+  selector:
+    app: node-demo
+  ports:
+  - port: 80
+    targetPort: 3000
