@@ -6,5 +6,7 @@ node_modules/
 *.env*
 .pnpm-store
 milvus/*
-/es-test/volumes/*
-/milvus-test/volumes/*
+# /es-test/volumes/*
+# /milvus-test/volumes/*
+# /neo4j-graphrag/volumes/*
+*volumes*
