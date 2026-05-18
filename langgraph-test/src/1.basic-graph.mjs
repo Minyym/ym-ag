@@ -1,4 +1,5 @@
 import { Annotation, END, START, StateGraph } from "@langchain/langgraph";
+import "dotenv/config";
 
 // Annotation 用于创建 State，指定默认值（default）和合并逻辑（reducer）
 const StateAnnotation = Annotation.Root({
